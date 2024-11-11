@@ -1,0 +1,26 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: config-server
+
+  ## Config Server Configuration
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/agutierrezldev/salud-click-profile.git
+
+          #encrypt
+          username: ${GITHUB_USER}
+          password: ${GITHUB_TOKEN}
+
+          #defaultLabel: ${CONFIG.SERVER.BRANCH:main}
+          defaultLabel: ${BRANCH}
+          #cloneOnStart: true # search to initial up application = true
+          refreshRate: 10 # search then seconds to authentication - validation for 10s
+
+## Encrypt key
+encrypt:
+  key: agutierrezl-secret
