@@ -1,0 +1,23 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discovery-server
+#  config:
+#    activate:
+#      onProfile: agutierrezl
+
+eureka:
+  client:
+    fetchRegistry: false
+    registerWithEureka: false
+  datacenter: agutierrezl-center
+  environment: Development
+
+  instance:
+    hostname: localhost
+    #preferIpAddress: false
+    preferIpAddress: true
+    leaseExpirationDurationInSeconds: 10
+    leaseRenewalIntervalInSeconds: 10
