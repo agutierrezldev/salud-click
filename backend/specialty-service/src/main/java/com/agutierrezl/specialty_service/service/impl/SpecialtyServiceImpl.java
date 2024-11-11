@@ -25,6 +25,14 @@ public class SpecialtyServiceImpl implements ISpecialtyService {
     private final List<ISpecialtyValidator> specialtyValidators;
 
     @Override
+    public List<SpecialtyDTO> getAllByStatus(Boolean status) {
+        List<Specialty> specialties = this.specialtyRepository.findByStatus(status);
+        return specialties.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public List<SpecialtyDTO> getAll() {
         List<Specialty> specialties = this.specialtyRepository.findAll();
         return specialties.stream()

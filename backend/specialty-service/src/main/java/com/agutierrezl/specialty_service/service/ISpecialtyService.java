@@ -5,6 +5,7 @@ import java.util.List;
 
 public interface ISpecialtyService {
 
+    List<SpecialtyDTO> getAllByStatus(Boolean status);
     List<SpecialtyDTO> getAll();
     SpecialtyDTO getById(Long id);
     SpecialtyDTO save(SpecialtyDTO specialtyDTO);

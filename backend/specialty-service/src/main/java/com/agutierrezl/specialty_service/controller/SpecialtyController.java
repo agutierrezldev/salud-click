@@ -25,6 +25,12 @@ public class SpecialtyController {
         return new ResponseEntity<>(specialties, HttpStatus.OK);
     }
 
+    @GetMapping("/{status}/status")
+    public ResponseEntity<List<SpecialtyDTO>> getAllByStatus(@PathVariable Boolean status) {
+        List<SpecialtyDTO> specialties = specialtyService.getAllByStatus(status);
+        return new ResponseEntity<>(specialties, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<SpecialtyDTO> getById(@PathVariable Long id) {
         SpecialtyDTO specialtyDTO = specialtyService.getById(id);
