@@ -1,11 +1,9 @@
 package com.agutierrezl.specialty_service.service.impl;
 
-import com.agutierrezl.specialty_service.dto.AvailabilityDTO;
 import com.agutierrezl.specialty_service.dto.SpecialtyDTO;
 import com.agutierrezl.specialty_service.entity.Specialty;
 import com.agutierrezl.specialty_service.exception.SpecialtyException;
 import com.agutierrezl.specialty_service.repository.ISpecialtyRepository;
-import com.agutierrezl.specialty_service.service.IAvailabilityService;
 import com.agutierrezl.specialty_service.service.ISpecialtyService;
 import com.agutierrezl.specialty_service.validator.ISpecialtyValidator;
 import lombok.RequiredArgsConstructor;

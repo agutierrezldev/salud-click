@@ -1,6 +1,5 @@
 package com.agutierrezl.specialty_service.controller;
 
-import com.agutierrezl.specialty_service.dto.AvailabilityDTO;
 import com.agutierrezl.specialty_service.dto.SpecialtyDTO;
 import com.agutierrezl.specialty_service.service.ISpecialtyService;
 import jakarta.validation.Valid;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor

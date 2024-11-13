@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ISpecialtyRepository extends JpaRepository<Specialty,Long> {
+public interface ISpecialtyRepository extends JpaRepository<Specialty, Long> {
     Optional<Specialty> findByNameAndStatus(String name, Boolean status);
+
     List<Specialty> findByStatus(Boolean status);
 }

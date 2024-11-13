@@ -1,7 +1,6 @@
 package com.agutierrezl.specialty_service.repository;
 
 import com.agutierrezl.specialty_service.entity.Availability;
-import com.agutierrezl.specialty_service.entity.Specialty;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,5 +18,4 @@ public interface IAvailabilityRepository extends JpaRepository<Availability, Lon
     Optional<Availability>
     findByDayAndStartTimeAndEndTimeAndSpecialtyIdAndStatus(LocalDate day, LocalTime startTime, LocalTime endTime, Long specialtyId, Boolean status);
 
-    List<Availability> findBySpecialtyIdAndStatus(Long specialtyId, Boolean status);
 }
