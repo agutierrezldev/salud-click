@@ -1,5 +1,6 @@
 package com.agutierrezl.specialty_service.dto;
 
+import com.agutierrezl.specialty_service.controller.AvailabilityController;
 import com.agutierrezl.specialty_service.controller.SpecialtyController;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -22,12 +23,17 @@ public class SpecialtyDTO extends RepresentationModel<SpecialtyDTO>{
     private Boolean status = true;
 
     public SpecialtyDTO addLinks(){
-//        this.add(WebMvcLinkBuilder.linkTo(
-//                        WebMvcLinkBuilder.methodOn(SpecialtyController.class).getSpecialtyWithAvailability(id))
-//                .withRel("availability"));
-        this.add(WebMvcLinkBuilder.linkTo(
-                        WebMvcLinkBuilder.methodOn(SpecialtyController.class).getById(id))
-                .withSelfRel());
+        if (this.getLinks().stream().noneMatch(link -> link.getRel().value().equals("self"))) {
+            this.add(WebMvcLinkBuilder.linkTo(
+                            WebMvcLinkBuilder.methodOn(AvailabilityController.class).getAvailabilitiesBySpecialId(id))
+                    .withRel("availability"));
+        }
+
+        if (this.getLinks().stream().noneMatch(link -> link.getRel().value().equals("specialty"))) {
+            this.add(WebMvcLinkBuilder.linkTo(
+                            WebMvcLinkBuilder.methodOn(SpecialtyController.class).getById(id))
+                    .withSelfRel());
+        }
         return this;
     }
 }

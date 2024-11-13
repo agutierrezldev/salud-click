@@ -21,41 +21,38 @@ public class SpecialtyController {
 
     @GetMapping("")
     public ResponseEntity<List<SpecialtyDTO>> getAll() {
-        List<SpecialtyDTO> specialties = specialtyService.getAll();
+        List<SpecialtyDTO> specialties = this.specialtyService.getAll();
+        return new ResponseEntity<>(specialties, HttpStatus.OK);
+    }
+
+    @GetMapping("/{status}/status")
+    public ResponseEntity<List<SpecialtyDTO>> getAllByStatus(@PathVariable Boolean status) {
+        List<SpecialtyDTO> specialties = this.specialtyService.getAllByStatus(status);
         return new ResponseEntity<>(specialties, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<SpecialtyDTO> getById(@PathVariable Long id) {
-        SpecialtyDTO specialtyDTO = specialtyService.getById(id);
+        SpecialtyDTO specialtyDTO = this.specialtyService.getById(id);
         return ResponseEntity.ok(specialtyDTO);
     }
 
     @PostMapping
     public ResponseEntity<SpecialtyDTO> save(@Valid @RequestBody SpecialtyDTO specialtyCreateDTO) {
-        SpecialtyDTO specialtyDTO = specialtyService.save(specialtyCreateDTO);
+        SpecialtyDTO specialtyDTO = this.specialtyService.save(specialtyCreateDTO);
         return new ResponseEntity<>(specialtyDTO, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<SpecialtyDTO> update(@PathVariable Long id, @Valid @RequestBody SpecialtyDTO specialtyUpdateDTO) {
-        SpecialtyDTO specialtyDTO = specialtyService.update(id, specialtyUpdateDTO);
+        SpecialtyDTO specialtyDTO = this.specialtyService.update(id, specialtyUpdateDTO);
         return new ResponseEntity<>(specialtyDTO, HttpStatus.OK);
     }
 
     @PutMapping("/{id}/disable")
     public ResponseEntity<SpecialtyDTO> disable(@PathVariable Long id) {
-        SpecialtyDTO specialtyDTO = specialtyService.disable(id);
+        SpecialtyDTO specialtyDTO = this.specialtyService.disable(id);
         return new ResponseEntity<>(specialtyDTO, HttpStatus.OK);
     }
 
-
-//    @GetMapping("/{id}/availability")
-//    public ResponseEntity<List<AvailabilityDTO>> getSpecialtyWithAvailability(@PathVariable Long id) {
-//        List<AvailabilityDTO> availabilities = availabilityService.findBySpecialtyId(id)
-//                .stream()
-//                .map(availability ->availability.addLinks(id))
-//                .collect(Collectors.toList());
-//        return ResponseEntity.ok(availabilities);
-//    }
 }

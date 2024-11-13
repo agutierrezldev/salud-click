@@ -3,7 +3,8 @@ package com.agutierrezl.specialty_service.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @Entity
@@ -14,13 +15,15 @@ public class Availability {
     private Long id;
 
     @Temporal(TemporalType.DATE)
-    private Date day;
+    private LocalDate day;
 
     @Temporal(TemporalType.TIME)
-    private Date startTime;
+    private LocalTime startTime;
 
     @Temporal(TemporalType.TIME)
-    private Date endTime;
+    private LocalTime endTime;
+
+    private Boolean status;
 
     @ManyToOne
     @JoinColumn(name = "specialty_id")

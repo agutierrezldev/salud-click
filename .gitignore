@@ -1,2 +1,5 @@
 backend/config-service/.env
 .env
+backend/specialty_service/target/
+!**/src/main/**/target/
+!**/src/test/**/target/
