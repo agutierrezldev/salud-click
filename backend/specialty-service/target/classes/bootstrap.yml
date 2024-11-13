@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: specialty-service
-  cloud:
-    config:
-      uri: ${CONFIG.SERVER.HOSTNAME:http://localhost:9000}
-      profile: ${ENVIRONMENT.DEPLOY:dev} # specialty-service-dev.yml
-      enabled: true
