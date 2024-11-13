@@ -17,6 +17,11 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(ex.getMessage(), ex.getStatus(), request);
     }
 
+    @ExceptionHandler(AvailabilityException.class)
+    public ResponseEntity<CustomError> handleAvailabilityException(AvailabilityException ex, WebRequest request) {
+        return buildErrorResponse(ex.getMessage(), ex.getStatus(), request);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleGenericException(Exception ex) {
         return new ResponseEntity<>("Ocurrió un error inesperado: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

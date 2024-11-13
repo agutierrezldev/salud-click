@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface ISpecialtyRepository extends JpaRepository<Specialty,Long> {
-    Optional<Specialty> findByName(String name);
+    Optional<Specialty> findByNameAndStatus(String name, Boolean status);
     List<Specialty> findByStatus(Boolean status);
 }

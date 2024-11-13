@@ -15,6 +15,8 @@ public class AvailabilityDTO extends RepresentationModel<AvailabilityDTO> {
     private LocalDate day;
     private LocalTime startTime;
     private LocalTime endTime;
+    private SpecialtyDTO specialty;
+    private Boolean status = true;
 
     public AvailabilityDTO addLinks(Long specialtyId) {
 

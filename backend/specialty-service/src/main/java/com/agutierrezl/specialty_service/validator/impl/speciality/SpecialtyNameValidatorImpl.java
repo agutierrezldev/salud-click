@@ -21,7 +21,7 @@ public class SpecialtyNameValidatorImpl implements ISpecialtyValidator {
     }
 
     private void checkIfSpecialtyExistsByName(Long id, SpecialtyDTO specialtyDTO) {
-        this.specialtyRepository.findByName(specialtyDTO.getName()).ifPresent(specialty -> {
+        this.specialtyRepository.findByNameAndStatus(specialtyDTO.getName(), true).ifPresent(specialty -> {
             if (!specialty.getId().equals(id)) {
                 throw new SpecialtyException("La especialidad con nombre '" + specialtyDTO.getName() + "' ya existe.", HttpStatus.BAD_REQUEST);
             }
